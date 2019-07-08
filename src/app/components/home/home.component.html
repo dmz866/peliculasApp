@@ -6,9 +6,7 @@
 </div>
 <div class="container">
     <br>
-    <div class="row">
-        <h1>Cartelera</h1>
-        <hr>
-
-    </div>
+    <app-galeria [peliculas]="cartelera | slice: 0:6" titulo="Peliculas en Cartelera"></app-galeria>
+    <app-galeria [peliculas]="populares | slice: 0:6" titulo="Peliculas Populares"></app-galeria>
+    <app-galeria [peliculas]="popularesNinos | slice: 0:6" titulo="Peliculas Populares de Ninos"></app-galeria>
 </div>

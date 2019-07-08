@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,13 @@ export class PeliculasService
 
   getPopulares()
   {
-    const url = `${this.urlMovieDb}/discover/movie?callback=JSONP_CALLBACK&sort_by=popularity.desc&api_key=${this.apiKey}&language=es`;
+    const url = `${this.urlMovieDb}/discover/movie?callback=JSONP_CALLBACK&certification=R&sort_by=vote_average.desc&api_key=${this.apiKey}&language=es`;
+    return this.http.jsonp(url, 'JSONP_CALLBACK');
+  }
+
+  getPopularesNinos()
+  {
+    const url = `${this.urlMovieDb}/discover/movie?callback=JSONP_CALLBACK&certification.lte=G&sort_by=popularity.desc&api_key=${this.apiKey}&language=es`;
     return this.http.jsonp(url, 'JSONP_CALLBACK');
   }
 
@@ -32,9 +39,7 @@ export class PeliculasService
     const desdeStr = `${desde.getFullYear()}-${desde.getMonth() + 1}-${desde.getDate()}`;
     const hastaStr = `${hasta.getFullYear()}-${hasta.getMonth() + 1}-${hasta.getDate() + 7}`;
 
-
     const url = `${this.urlMovieDb}/discover/movie?callback=JSONP_CALLBACK&primary_release_date.gte=${desdeStr}&primary_release_date.lte=${hastaStr}&api_key=${this.apiKey}`;
-    console.log(url);
     return this.http.jsonp(url, 'JSONP_CALLBACK');
   }
 }

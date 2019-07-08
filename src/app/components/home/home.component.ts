@@ -6,13 +6,27 @@ import { PeliculasService } from 'src/app/services/peliculas.service';
   templateUrl: './home.component.html',
   styles: []
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit
+{
+  cartelera: any;
+  populares: any;
+  popularesNinos: any;
 
   constructor(public peliculasService: PeliculasService)
   {
-    this.peliculasService.getCartelera().subscribe(resp =>
+    this.peliculasService.getCartelera().subscribe((resp: any) =>
     {
-      console.log(resp);
+      this.cartelera = resp.results;
+    });
+
+    this.peliculasService.getPopulares().subscribe((resp: any) =>
+    {
+      this.populares = resp.results;
+    });
+
+    this.peliculasService.getPopularesNinos().subscribe((resp: any) =>
+    {
+      this.popularesNinos = resp.results;
     });
   }
 

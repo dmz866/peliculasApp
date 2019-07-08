@@ -7,6 +7,8 @@ import { HomeComponent } from './components/home/home.component';
 import { PeliculaComponent } from './components/pelicula/pelicula.component';
 import { BuscarComponent } from './components/buscar/buscar.component';
 import { appRouting } from "../app/app.routes";
+import { PeliculaImagenPipe } from './pipes/pelicula-imagen.pipe';
+import { GaleriaComponent } from './components/home/galeria.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { appRouting } from "../app/app.routes";
     NavbarComponent,
     HomeComponent,
     PeliculaComponent,
-    BuscarComponent
+    BuscarComponent,
+    PeliculaImagenPipe,
+    GaleriaComponent
   ],
   imports: [
     BrowserModule,
