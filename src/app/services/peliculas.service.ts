@@ -18,6 +18,12 @@ export class PeliculasService
     return this.http.jsonp(url, 'JSONP_CALLBACK');
   }
 
+  getPeliculaByID(id: string)
+  {
+    const url = `${this.urlMovieDb}/movie/${id}?callback=JSONP_CALLBACK&api_key=${this.apiKey}`;
+    return this.http.jsonp(url, 'JSONP_CALLBACK');
+  }
+
   getPopularesNinos()
   {
     const url = `${this.urlMovieDb}/discover/movie?callback=JSONP_CALLBACK&certification.lte=G&sort_by=popularity.desc&api_key=${this.apiKey}&language=es`;

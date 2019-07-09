@@ -9,6 +9,7 @@ import { BuscarComponent } from './components/buscar/buscar.component';
 import { appRouting } from "../app/app.routes";
 import { PeliculaImagenPipe } from './pipes/pelicula-imagen.pipe';
 import { GaleriaComponent } from './components/home/galeria.component';
+import { FormsModule  } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { GaleriaComponent } from './components/home/galeria.component';
     BrowserModule,
     HttpClientModule,
     HttpClientJsonpModule,
-    appRouting
+    appRouting,
+    FormsModule
   ],
   providers: [
   ],
